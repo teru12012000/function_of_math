@@ -1,41 +1,24 @@
 import { NextPage } from "next";
-import {Line} from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
 import Graph from "../../components/Graph";
 import { MouseEvent, useState } from "react";
 import formstyle from "../../components/styles/valueform.css";
 import Graphtable from "../../components/graphtable";
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-);
+import { label, numberbutton, x_array } from "../../data/writegraph_value";
 
-
+numberbutton.push('-','.','/','C');
 const Index:NextPage = () => {
-  const [a1,setA1]=useState("2");
-  const [a2,setA2]=useState("");
-  const [b1,setB1]=useState("5");
-  const [b2,setB2]=useState("");
-  const [dis,setDis]=useState('none');
-  const [slush,setSlush]=useState("");
-  const x_array:number[]=[...Array(11)].map((_,index:number)=>(index-5));
-  const [y_array,setY_array]=useState(x_array.map((item:number,index:number)=>(2*item+5)));
-  const label:string[]=x_array.map((item:number,index:number)=>String(item));
-  const numberbutton:string[]=[...Array(10)].map((_,index:number)=>(String(index)));
-  numberbutton.push('.','/','C');
+  const [a,setA]=useState("");
+  const [achild,setAchid]=useState(0);
+  const [amother,setAmother]=useState(1);
+  const [bchild,setBchid]=useState(0);
+  const [unclickA,setUnclickA]=useState([...Array(13)].map((_,index:number)=>(index===0||index===11||index===12)?true:false))
+  const [unclickB,setUnclickB]=useState([...Array(13)].map((_,index:number)=>(index===0||index===11||index===12)?true:false))
+  const [bmother,setBmother]=useState(1);
+  const [b,setB]=useState("");
+  let slushA:boolean=false;
+  let slushB:boolean=false;
+  const [y_array,setY_array]=useState(x_array.map((item:number,index:number)=>0));
+  
   /*const handleClick=()=>{
     const a_value=Number(a);
     const b_value=Number(b);
@@ -45,16 +28,53 @@ const Index:NextPage = () => {
   }*/
   
 
-const handlebutton=(value:string)=>{
-  if(value==='/'&&slush===''){
-    setSlush('/');
-    setDis('block');
-  }else if(value==='/'&&slush!==''){
-    setSlush('');
-    setDis('none');
-  }else{
+const handlebutton=(e: MouseEvent<HTMLInputElement, globalThis.MouseEvent>,aorb:string,index:number)=>{
+  let num:string;
+  const value:string=e.currentTarget.value;
+  if(aorb==='A'){
+    if(!a){
+      setUnclickA(unclickA.map((item:boolean)=>false))
+    }
+    if(value==='/'&&!slushA){
+      slushA=true;
+      setUnclickA(unclickA.map((item:boolean,ind:number)=>(ind===index)?true:false));
+    }
+    if(value==='C'){
+      slushA=false;
+      setA("");
+      setAchid(0);
+      setBchid(1);
+      setUnclickA(unclickA.map((item:boolean,index:number)=>(index===0||index===11||index===12)?true:false))
+    }else{
+      num=a+value;
+      setA(num);
+    }
 
+  }else{
+    if(!b){
+      setUnclickB(unclickB.map((item:boolean)=>false))
+    }
+    if(value==='/'&&!slushB){
+      slushB=true;
+      setUnclickB(unclickB.map((item:boolean,ind:number)=>(ind===index)?true:false));
+    }else if(value==='.'){
+      setUnclickB(unclickB.map((item:boolean,ind:number)=>(ind===index)?true:false));
+    }
+    if(value==='C'){
+      slushB=false;
+      setB("");
+      setAchid(0);
+      setBchid(1);
+      setUnclickB(unclickB.map((item:boolean,index:number)=>(index===0||index===11||index===12)?true:false))
+    }else{
+      num=b+value;
+      setB(num);
+    }
   }
+  
+  
+  
+  
 }
 
 
@@ -68,13 +88,13 @@ const handlebutton=(value:string)=>{
             y=
           </p>
           <p className={formstyle.text}>
-            a
+            {a}
           </p>
           <p>
             x+
           </p>
           <p className={formstyle.text}>
-            b
+            {b}
           </p>
         </div>
         
@@ -88,44 +108,32 @@ const handlebutton=(value:string)=>{
           <p>傾き：</p>
           <input 
             type="text"
-            value={a1}
+            value={a}
             disabled={true}
-          />
-          {slush}
-          <input 
-            type="text"
-            value={a2}
-            disabled={true}
-            style={{display:dis}}
           />
         </div>
         {numberbutton.map((item:string,index:number)=>(
             <input type="button" 
               value={item} 
               key={index}
-              onClick={(e)=>handlebutton(e.currentTarget.value)}
+              disabled={unclickA[index]}
+              onClick={(e)=>handlebutton(e,'A',index)}
             />
           ))}<br/>
           <div className={formstyle.form}>
           <p>切片：</p>
           <input 
             type="text"
-            value={a1}
+            value={b}
             disabled={true}
-          />
-          {slush}
-          <input 
-            type="text"
-            value={a2}
-            disabled={true}
-            style={{display:dis}}
           />
         </div>
         {numberbutton.map((item:string,index:number)=>(
             <input type="button" 
               value={item} 
               key={index}
-              onClick={(e)=>handlebutton(e.currentTarget.value)}
+              disabled={unclickB[index]}
+              onClick={(e)=>handlebutton(e,'B',index)}
             />
           ))}<br/>
         
