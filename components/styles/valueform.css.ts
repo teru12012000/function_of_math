@@ -5,6 +5,14 @@ const formstyle={
     width:"400px",
     margin:"30px auto",
     textAlign:"center",
+  }),
+  form:style({
+    display:"flex",
+  }),
+  text:style({
+    width:"30px",
+    height:"30px",
+    border:"2px solid black",
   })
 }
 
