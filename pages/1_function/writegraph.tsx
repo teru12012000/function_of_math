@@ -13,8 +13,6 @@ numberbutton.push('-','.','/','C');
 const Index:NextPage = () => {
   const [numA,setNumA]=useState(0);//型変換したやつ
   const [numB,setNumB]=useState(1);//型変換したやつ
-  const [slushA,setSlushA]=useState(false);//スラッシュがあるかどうか
-  const [slushB,setSlushB]=useState(false);//スラッシュがあるかどうか
   const [pa,setPa]=useState("0");//傾き表示(input)
   const [pb,setPb]=useState("0");//切片表示(input)
   const [y_array,setY_array]=useState(x_array.map((item:number,index:number)=>0));//Yの値
@@ -40,10 +38,8 @@ const Index:NextPage = () => {
           <Graphform
             setP={setPa}
             setNum={setNumA}
-            setSlush={setSlushA}
             p={pa}
             num={numA}
-            slush={slushA}
             title={'傾き'}         
           />
         </div>
@@ -51,10 +47,8 @@ const Index:NextPage = () => {
           <Graphform
             setP={setPb}
             setNum={setNumB}
-            setSlush={setSlushB}
             p={pb}
             num={numB}
-            slush={slushB}
             title={'切片'}         
           />
         </div>
