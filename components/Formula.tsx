@@ -10,19 +10,20 @@ type Props={
 const Formula:FC<Props> = ({a,b}) => {
   return (
     <div className={formstyle.form}>
-          <p>
+      
+        <p>
             y=
-          </p>
-          <p className={formstyle.text}>
-            {a}
-          </p>
-          <p>
-            x+
-          </p>
-          <p className={formstyle.text}>
-            {b}
-          </p>
-        </div>
+        </p>
+        <p className={formstyle.text}>
+          {a}
+        </p>
+        <p>
+          x+
+        </p>
+        <p className={formstyle.text}>
+          {b}
+        </p>      
+    </div>
   );
 }
 

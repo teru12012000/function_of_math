@@ -61,8 +61,9 @@ const Index:NextPage = () => {
         </div>
         <Graphtable x={label} y={y_array}/>
       </div>
-      <h2>解説</h2>
+      
       <div>
+      <h2>解説</h2>
         <h3>1次関数のグラフ</h3>
         <section>
           まず、1次関数の式は以下のようになります。
@@ -89,9 +90,6 @@ const Index:NextPage = () => {
           1次関数のグラフは直線になります。このことから1次関数の式を直線の式と言ったりもします。
         </section>
       </div>
-      
-      
-      
     </div>
   );
 }

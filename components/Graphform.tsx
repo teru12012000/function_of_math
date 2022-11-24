@@ -1,5 +1,6 @@
 import { Dispatch, FC, MouseEvent, SetStateAction, useState } from "react";
 import { numberbutton } from "../data/writegraph_value";
+import inputform from "./styles/inputform.css";
 import formstyle from "./styles/valueform.css";
 type Props={
   setP:Dispatch<SetStateAction<string>>;
@@ -102,6 +103,9 @@ const Graphform:FC<Props> = ({
         setForm(num); 
     }
   }
+
+
+
   const Confirm=(aorb:string)=>{
     
     if(!slush){
@@ -128,14 +132,16 @@ const Graphform:FC<Props> = ({
               type="text"
               value={form}
               disabled={true}
+              className={inputform.text}
             />
-          </div>
+        </div>
           {numberbutton.map((item:string,index:number)=>(
             <input type="button" 
               value={item} 
               key={index}
               disabled={click[index]}
               onClick={(e)=>handlebutton(e,index)}
+
             />
           ))}<br/>
           <input 

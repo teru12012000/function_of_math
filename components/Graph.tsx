@@ -54,7 +54,6 @@ const Graph:FC<Props> = ({x,y,scale,min,max}) => {
   return (
     <div className={graphstyle.contain}>
       <Line
-        
         data={graphData}
         options={options}
         className={graphstyle.graph}
