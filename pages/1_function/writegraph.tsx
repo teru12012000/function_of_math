@@ -12,6 +12,7 @@ import Latex from 'react-latex';
 import inputform from "../../components/styles/inputform.css";
 import comment from "../../components/styles/comment.css";
 import Comment from "../../components/Comment";
+import Header from "../../components/Header";
 numberbutton.push('-','.','/','C');
 const Index:NextPage = () => {
   const [numA,setNumA]=useState(0);//型変換したやつ
@@ -33,6 +34,7 @@ const Index:NextPage = () => {
         <title>1次関数のグラフ</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" />
       </Head>
+      <Header title={'1次関数のグラフ'}/>
       <Graph x={label} y={y_array} scale={1} min={-50} max={50}/>
       <div className={formstyle.contain}>
         <Formula a={pa} b={pb}/>
