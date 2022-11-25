@@ -106,7 +106,7 @@ const Graphform:FC<Props> = ({
 
 
 
-  const Confirm=(aorb:string)=>{
+  const Confirm=()=>{
     
     if(!slush){
       setNum(Number.parseFloat(child));
@@ -135,20 +135,25 @@ const Graphform:FC<Props> = ({
               className={inputform.text}
             />
         </div>
-          {numberbutton.map((item:string,index:number)=>(
-            <input type="button" 
-              value={item} 
-              key={index}
-              disabled={click[index]}
-              onClick={(e)=>handlebutton(e,index)}
-
+          <div>
+            {numberbutton.map((item:string,index:number)=>(
+              <input type="button" 
+                value={item} 
+                key={index}
+                disabled={click[index]}
+                onClick={(e)=>handlebutton(e,index)}
+                className={inputform.numberbutton}
+              />
+            ))}
+          </div>
+          <div className={inputform.confirmform}>
+            <input 
+              type="button" 
+              value={`${title}を確定させる`}
+              onClick={()=>Confirm()}
+              className={inputform.confirmbutton}
             />
-          ))}<br/>
-          <input 
-            type="button" 
-            value={`${title}を確定させる`}
-            onClick={()=>Confirm('A')}
-          />
+          </div>
       </div>
   );
 }

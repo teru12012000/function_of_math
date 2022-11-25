@@ -11,6 +11,7 @@ import {
 } from "chart.js";
 import { FC, useState } from "react";
 import graphstyle from "./styles/Graph.css";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -27,6 +28,8 @@ type Props={
   min:number;
   max:number;
 }
+
+
 const Graph:FC<Props> = ({x,y,scale,min,max}) => {
   
   let options = {

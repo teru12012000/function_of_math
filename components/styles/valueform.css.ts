@@ -7,7 +7,6 @@ const formstyle={
     textAlign:"center",
   }),
   form:style({
-    width:"80%",
     display:"flex",
     justifyContent:"center",
     textAlign:"center",

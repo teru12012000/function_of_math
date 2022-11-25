@@ -9,6 +9,9 @@ import Formula from "../../components/Formula";
 import Head from "next/head";
 import 'katex/dist/katex.mjs';
 import Latex from 'react-latex';
+import inputform from "../../components/styles/inputform.css";
+import comment from "../../components/styles/comment.css";
+import Comment from "../../components/Comment";
 numberbutton.push('-','.','/','C');
 const Index:NextPage = () => {
   const [numA,setNumA]=useState(0);//型変換したやつ
@@ -22,7 +25,6 @@ const Index:NextPage = () => {
       Number((numA*item+numB).toFixed(3))
     )))
   }
-
 
   return (
     
@@ -57,41 +59,37 @@ const Index:NextPage = () => {
             type="button" 
             value="グラフ描画！"
             onClick={()=>writegraph()}
+            className={inputform.paintgraph}
           />
         </div>
         <Graphtable x={label} y={y_array}/>
       </div>
       
-      <div>
-      <h2>解説</h2>
-        <h3>1次関数のグラフ</h3>
-        <section>
-          まず、1次関数の式は以下のようになります。
-          <Latex displayMode={true}>
-            {`$y=ax+b$`}
-          </Latex>
-          <Latex>
-            {`$a$`}
-          </Latex>
-          は傾きや変化の割合と言われ、
-          <Latex>
-            {`$b$`}
-          </Latex>
-          は切片と言われています。傾き(変化の割合)については次の章で話します。
-          切片は、
-          <Latex>
-            {`$x=0$`}
-          </Latex>
-          の際の、
-          <Latex>
-            {`$y$`}
-          </Latex>座標を言います。<br/>
-          傾きや切片の値を入力して、グラフを描画してみましょう。描画してみるとわかりますが、
-          1次関数のグラフは直線になります。このことから1次関数の式を直線の式と言ったりもします。
-        </section>
-      </div>
+    <Comment>
+        まず、1次関数の式は以下のようになります。
+        <Latex displayMode={true}>
+          {`$y=ax+b$`}
+        </Latex>
+        <Latex>
+          {`$a$`}
+        </Latex>
+        は傾きや変化の割合と言われ、
+        <Latex>
+          {`$b$`}
+        </Latex>
+        は切片と言われています。傾き(変化の割合)については次の章で話します。
+        切片は、
+        <Latex>
+          {`$x=0$`}
+        </Latex>
+        の際の、
+        <Latex>
+          {`$y$`}
+        </Latex>座標を言います。<br/>
+        傾きや切片の値を入力して、グラフを描画してみましょう。描画してみるとわかりますが、
+        1次関数のグラフは直線になります。このことから1次関数の式を直線の式と言ったりもします。  
+    </Comment>     
     </div>
   );
 }
-
 export default Index;
