@@ -5,6 +5,18 @@ const head={
     backgroundColor:"black",
     color:"white",
     padding:"5px",
+  }),
+  link:style({
+    width:"100px",
+    display:"flex",
+    ':hover':{
+      color:"aqua",
+      transition:"0.6s",
+    }
+  }),
+  p:style({
+    margin:"10px",
+    marginLeft:"2px",
   })
 }
 

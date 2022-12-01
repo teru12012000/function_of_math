@@ -16,7 +16,7 @@ import Header from "../../components/Header";
 numberbutton.push('-','.','/','C');
 const Index:NextPage = () => {
   const [numA,setNumA]=useState(0);//型変換したやつ
-  const [numB,setNumB]=useState(1);//型変換したやつ
+  const [numB,setNumB]=useState(0);//型変換したやつ
   const [pa,setPa]=useState("0");//傾き表示(input)
   const [pb,setPb]=useState("0");//切片表示(input)
   const [y_array,setY_array]=useState(x_array.map((item:number,index:number)=>0));//Yの値
@@ -34,7 +34,7 @@ const Index:NextPage = () => {
         <title>1次関数のグラフ</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" />
       </Head>
-      <Header title={'1次関数のグラフ'}/>
+      <Header title={'1次関数のグラフ'} link={'/1_function/home'}/>
       <Graph x={label} y={y_array} scale={1} min={-50} max={50}/>
       <div className={formstyle.contain}>
         <Formula a={pa} b={pb}/>
