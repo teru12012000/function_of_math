@@ -3,17 +3,18 @@ import Graph from "../../components/Graph";
 import { useState } from "react";
 import formstyle from "../../components/styles/valueform.css";
 import Graphtable from "../../components/graphtable";
-import { label, numberbutton, x_array } from "../../data/writegraph_value";
+import { label, x_array } from "../../data/writegraph_value";
 import Graphform from "../../components/Graphform";
 import Formula from "../../components/Formula";
 import Head from "next/head";
 import 'katex/dist/katex.mjs';
 import Latex from 'react-latex';
 import inputform from "../../components/styles/inputform.css";
-import comment from "../../components/styles/comment.css";
 import Comment from "../../components/Comment";
 import Header from "../../components/Header";
-numberbutton.push('-','.','/','C');
+import { MathJaxContext, MathJax } from "better-react-mathjax";
+
+
 const Index:NextPage = () => {
   const [numA,setNumA]=useState(0);//型変換したやつ
   const [numB,setNumB]=useState(0);//型変換したやつ
@@ -67,29 +68,22 @@ const Index:NextPage = () => {
         <Graphtable x={label} y={y_array}/>
       </div>
       
-    <Comment>
+    <Comment title={"1次関数のグラフについて"}>
+        <MathJaxContext>
         まず、1次関数の式は以下のようになります。
-        <Latex displayMode={true}>
-          {`$y=ax+b$`}
-        </Latex>
-        <Latex>
-          {`$a$`}
-        </Latex>
-        は傾きや変化の割合と言われ、
-        <Latex>
-          {`$b$`}
-        </Latex>
-        は切片と言われています。傾き(変化の割合)については次の章で話します。
-        切片は、
-        <Latex>
-          {`$x=0$`}
-        </Latex>
-        の際の、
-        <Latex>
-          {`$y$`}
-        </Latex>座標を言います。<br/>
+          <MathJax
+            style={{textAlign:"center",fontSize:"30px"}}
+          >
+            {`\\(y=ax+b\\)`}
+          </MathJax>
+          <MathJax>
+            {"\\(a\\)"}は傾きや変化の割合と言われ、 {"\\(b\\)"}
+            は切片と言われています。傾き(変化の割合)については次の章で話します。
+            切片は、{`\\(x=0\\)`}の際の、{"\\(y\\)"}座標を言います。<br/>
         傾きや切片の値を入力して、グラフを描画してみましょう。描画してみるとわかりますが、
-        1次関数のグラフは直線になります。このことから1次関数の式を直線の式と言ったりもします。  
+        1次関数のグラフは直線になります。このことから1次関数の式を直線の式と言ったりもします。
+          </MathJax>
+        </MathJaxContext>
     </Comment>     
     </div>
   );

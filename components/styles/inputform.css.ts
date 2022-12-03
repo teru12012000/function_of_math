@@ -38,7 +38,7 @@ const inputform={
   confirmbutton:style({
     margin:"10px",
     height:"40px",
-    width:"120px",
+    width:"180px",
     backgroundColor:"yellow",
     color:"blue",
     border:"1px solid yellow",

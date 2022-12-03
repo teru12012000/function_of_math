@@ -1,9 +1,10 @@
 import comment from "./styles/comment.css";
 import {FC,ReactNode,useState} from "react";
 type Props={
+  title:string;
   children:ReactNode;
 }
-const Comment:FC<Props> = ({children}) => {
+const Comment:FC<Props> = ({title,children}) => {
   const [display,setDisplay]=useState("none");
   const handleClick=()=>{
     if(display==='none'){
@@ -24,7 +25,7 @@ const Comment:FC<Props> = ({children}) => {
         display:display,
       }}
     >
-    <h3>1次関数のグラフ</h3>
+    <h3>{title}</h3>
       <section className={comment.main}>
         {children}
       </section>
