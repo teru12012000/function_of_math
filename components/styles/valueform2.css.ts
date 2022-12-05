@@ -80,7 +80,9 @@ const frac={
     width:"80%",
     margin:"auto",
     border:"2px solid black",
-  })
+  }),
+
+  
 }
 
 export default frac;
