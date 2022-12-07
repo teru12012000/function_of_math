@@ -10,6 +10,7 @@ import { MathJaxContext, MathJax } from "better-react-mathjax";
 import Filt_component from "../../components/Filt_component";
 import Setting from "../../components/Setting";
 import { calculate } from "../../data/function";
+import Cal_filt from "../../components/Cal_filt";
 type Graph_data={
   setP:Dispatch<SetStateAction<string>>;
   setNum:Dispatch<SetStateAction<number>>;
@@ -88,23 +89,15 @@ const Filt:NextPage = () => {
                 /> 
             </div>
           ))}
-          <div>
-            <input 
-              type="button" 
-              value="傾きを算出！"
-              onClick={
-                ()=>calculate(
-                  numx1,
-                  numx2,
-                  numy1,
-                  numy2,
-                  setStrmother,
-                  setStrchild,
-                  setAns,
-              )}
-              className={inputform.paintgraph}
-            />
-          </div>
+          <Cal_filt
+            numx2={numx2}
+            numx1={numx1}
+            numy1={numy1}
+            numy2={numy2}
+            setStrmother={setStrmother}
+            setStrchild={setStrchild}
+            setAns={setAns}
+          />
         </Setting>
       </div>
       <Comment title={'グラフの傾きについて'}>
