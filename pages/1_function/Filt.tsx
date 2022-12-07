@@ -5,13 +5,11 @@ import Graphform from "../../components/Graphform";
 import Header from "../../components/Header";
 import inputform from "../../components/styles/inputform.css";
 import formstyle from "../../components/styles/valueform.css";
-import frac from "../../components/styles/valueform2.css";
-import 'katex/dist/katex.min.css'
-import Latex from 'react-latex-next'
 import Comment from "../../components/Comment";
 import { MathJaxContext, MathJax } from "better-react-mathjax";
 import Filt_component from "../../components/Filt_component";
 import Setting from "../../components/Setting";
+import { calculate } from "../../data/function";
 type Graph_data={
   setP:Dispatch<SetStateAction<string>>;
   setNum:Dispatch<SetStateAction<number>>;
@@ -25,13 +23,12 @@ const Filt:NextPage = () => {
   const [numy1,setNumy1]=useState<number>(0);
   const [numy2,setNumy2]=useState<number>(0);
   const [px1,setPx1]=useState<string>("0");
-  const [px2,setPx2]=useState<string>("0");
+  const [px2,setPx2]=useState<string>("1");
   const [py1,setPy1]=useState<string>("0");
-  const [py2,setPy2]=useState<string>("1");
+  const [py2,setPy2]=useState<string>("0");
   const [strmother,setStrmother]=useState<string>("1")
   const [strchild,setStrchild]=useState<string>("0")
   const [ans,setAns]=useState<string>("0")
- 
   const g_data:Graph_data[]=[
     {
       setP:setPx1,
@@ -62,20 +59,6 @@ const Filt:NextPage = () => {
       title:"2つ目のy座標"
     },
   ]
-  //傾きの計算
-  const calculate=()=>{
-    const mother:number=numx2-numx1;
-    const child:number=numy2-numy1;
-    setStrmother(String(mother.toFixed(3)));
-    setStrchild(String(child.toFixed(3)));
-    if(mother===0){
-      window.alert("分母が0になるような値は入力しないでください！！！");
-      setAns("実行不能")
-    }else{
-      var numans:string=(child/mother).toFixed(3);
-      setAns(numans);
-    }
-  }
   return (
     
     <>
@@ -109,13 +92,21 @@ const Filt:NextPage = () => {
             <input 
               type="button" 
               value="傾きを算出！"
-              onClick={()=>calculate()}
+              onClick={
+                ()=>calculate(
+                  numx1,
+                  numx2,
+                  numy1,
+                  numy2,
+                  setStrmother,
+                  setStrchild,
+                  setAns,
+              )}
               className={inputform.paintgraph}
             />
           </div>
         </Setting>
       </div>
-     
       <Comment title={'グラフの傾きについて'}>
         <MathJaxContext>
           グラフの傾きは変化の割合ともいわれます。その式は以下の通りです。
