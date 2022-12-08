@@ -14,8 +14,8 @@ const Graphform:FC<Props> = ({
 }) => {
   const [form,setForm]=useState("0");//傾き表示(input)
   const [psub,setPsub]=useState("");//傾き表示(input)
-  const [child,setChild]=useState("");
-  const [mother,setMother]=useState("");
+  const [child,setChild]=useState("0");
+  const [mother,setMother]=useState("0");
   const [point,setPoint]=useState(false);
   var pointcp:boolean=false;
   var slushcp:boolean=false;
@@ -36,7 +36,12 @@ const Graphform:FC<Props> = ({
         if(slushcp&&value!=='/'){
           setMother(mother+value);
         }else if(value!=='/'){
-          setChild(child+value);
+          if(form==='0'&&value!=='-'&&value!=='.'){
+            setChild(value);
+          }else{
+            setChild(child+value);
+          }
+          
         }
         if(value==='-'){
           setMinace(true);
@@ -44,7 +49,8 @@ const Graphform:FC<Props> = ({
         }else{
           setClick(click.map((item:boolean,ind:number)=>(ind===0||ind===12)?false:(ind===10)?true:item));
         }
-      }else if(value==='/'){
+      }
+      else if(value==='/'){
         setSlush(true);
         slushcp=true;
         setClick(click.map((item:boolean,ind:number)=>(ind===0||ind===11||ind===12)?true:item));
@@ -54,8 +60,8 @@ const Graphform:FC<Props> = ({
         setSlush(false);
         slushcp=false;
         setForm("0");
-        setChild('');
-        setMother('');
+        setChild('0');
+        setMother('0');
         setPoint(false);
         pointcp=false;
         setMinace(false);
@@ -111,8 +117,8 @@ const Graphform:FC<Props> = ({
     setSlush(false);
     slushcp=false;
     setForm("0");
-    setChild('');
-    setMother('');
+    setChild('0');
+    setMother('0');
     setPoint(false);
     pointcp=false;
     setMinace(false);
