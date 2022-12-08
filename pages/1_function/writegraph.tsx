@@ -43,8 +43,6 @@ const Index:NextPage = () => {
           <Graphform
             setP={setPa}
             setNum={setNumA}
-            p={pa}
-            num={numA}
             title={'傾き'}         
           />
         </div>
@@ -52,8 +50,6 @@ const Index:NextPage = () => {
           <Graphform
             setP={setPb}
             setNum={setNumB}
-            p={pb}
-            num={numB}
             title={'切片'}         
           />
         </div>
