@@ -5,21 +5,17 @@ import formstyle from "./styles/valueform.css";
 type Props={
   setP:Dispatch<SetStateAction<string>>;
   setNum:Dispatch<SetStateAction<number>>;
-  p:string;
-  num:number;
   title:string;
 }
 const Graphform:FC<Props> = ({
   setP,
   setNum,
-  p,
-  num,
   title,
 }) => {
   const [form,setForm]=useState("0");//傾き表示(input)
   const [psub,setPsub]=useState("");//傾き表示(input)
-  const [child,setChild]=useState("0");
-  const [mother,setMother]=useState("0");
+  const [child,setChild]=useState("");
+  const [mother,setMother]=useState("");
   const [point,setPoint]=useState(false);
   var pointcp:boolean=false;
   var slushcp:boolean=false;
@@ -92,7 +88,6 @@ const Graphform:FC<Props> = ({
             (pointcp&&(ind===11||ind==12))?true:
             (!pointcp&&(ind===11||ind===12))?false:item
           )));
-          console.log(click);
         }
         
         if(slushcp&&value!=='/'){
@@ -107,7 +102,6 @@ const Graphform:FC<Props> = ({
 
 
   const Confirm=()=>{
-    
     if(!slush){
       setNum(Number.parseFloat(child));
     }else{

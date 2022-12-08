@@ -9,13 +9,11 @@ import Comment from "../../components/Comment";
 import { MathJaxContext, MathJax } from "better-react-mathjax";
 import Filt_component from "../../components/Filt_component";
 import Setting from "../../components/Setting";
-import { calculate } from "../../data/function";
-import Cal_filt from "../../components/Cal_filt";
+import { calculate_flit } from "../../data/function";
+import Caluculate from "../../components/Caluculate";
 type Graph_data={
   setP:Dispatch<SetStateAction<string>>;
   setNum:Dispatch<SetStateAction<number>>;
-  p:string;
-  num:number;
   title:string;
 }
 const Filt:NextPage = () => {
@@ -24,39 +22,42 @@ const Filt:NextPage = () => {
   const [numy1,setNumy1]=useState<number>(0);
   const [numy2,setNumy2]=useState<number>(0);
   const [px1,setPx1]=useState<string>("0");
-  const [px2,setPx2]=useState<string>("1");
+  const [px2,setPx2]=useState<string>("0");
   const [py1,setPy1]=useState<string>("0");
   const [py2,setPy2]=useState<string>("0");
-  const [strmother,setStrmother]=useState<string>("1")
+  const [strmother,setStrmother]=useState<string>("0")
   const [strchild,setStrchild]=useState<string>("0")
-  const [ans,setAns]=useState<string>("0")
+  const [ans,setAns]=useState<string>("実不")
+  const flit=():void=>calculate_flit(
+    numx1,
+    numx2,
+    numy1,
+    numy2,
+    setStrmother,
+    setStrchild,
+    setAns,
+    undefined,
+  );
+  
   const g_data:Graph_data[]=[
     {
       setP:setPx1,
       setNum:setNumx1,
-      p:px1,
-      num:numx1,
       title:"1つ目のx座標"
     },
     {
       setP:setPy1,
       setNum:setNumy1,
-      p:py1,
-      num:numy1,
       title:"1つ目のy座標"
     },
     {
       setP:setPx2,
       setNum:setNumx2,
-      p:px2,
-      num:numx2,
       title:"2つ目のx座標"
     },
     {
       setP:setPy2,
       setNum:setNumy2,
-      p:py2,
-      num:numy2,
       title:"2つ目のy座標"
     },
   ]
@@ -83,20 +84,13 @@ const Filt:NextPage = () => {
               <Graphform
                   setP={item.setP}
                   setNum={item.setNum}
-                  p={item.p}
-                  num={item.num}
                   title={item.title}
                 /> 
             </div>
           ))}
-          <Cal_filt
-            numx2={numx2}
-            numx1={numx1}
-            numy1={numy1}
-            numy2={numy2}
-            setStrmother={setStrmother}
-            setStrchild={setStrchild}
-            setAns={setAns}
+          <Caluculate
+            title={'傾きを求める'}
+            caluculate={flit}
           />
         </Setting>
       </div>

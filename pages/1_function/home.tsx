@@ -15,7 +15,12 @@ const index:NextPage = () => {
       </div>
       <div>
         <Link href="/1_function/Solve_1">
-          1次関数の式を求める
+          1次関数の式を求める(1)
+        </Link>
+      </div>
+      <div>
+        <Link href="/1_function/Solve2">
+          1次関数の式を求める(2)
         </Link>
       </div>
     </div>
