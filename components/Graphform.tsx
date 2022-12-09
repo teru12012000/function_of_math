@@ -1,3 +1,4 @@
+import { off } from "process";
 import { Dispatch, FC, MouseEvent, SetStateAction, useState } from "react";
 import { numberbutton } from "../data/writegraph_value";
 import inputform from "./styles/inputform.css";
@@ -30,33 +31,7 @@ const Graphform:FC<Props> = ({
     const value:string=e.currentTarget.value;
       pointcp=point;
       slushcp=slush;
-      if(form==='0'&&value!=='.'&&value!=='C'){
-        num=value;
-        setForm(num);
-        if(slushcp&&value!=='/'){
-          setMother(mother+value);
-        }else if(value!=='/'){
-          if(form==='0'&&value!=='-'&&value!=='.'){
-            setChild(value);
-          }else{
-            setChild(child+value);
-          }
-          
-        }
-        if(value==='-'){
-          setMinace(true);
-          setClick(click.map((item:boolean,ind:number)=>(ind===10||ind===11)?true:(ind===0)?false:item));
-        }else{
-          setClick(click.map((item:boolean,ind:number)=>(ind===0||ind===12)?false:(ind===10)?true:item));
-        }
-      }
-      else if(value==='/'){
-        setSlush(true);
-        slushcp=true;
-        setClick(click.map((item:boolean,ind:number)=>(ind===0||ind===11||ind===12)?true:item));
-        num=form+value;
-        setForm(num);
-      }else if(value==='C'){
+      if(value==='C'){
         setSlush(false);
         slushcp=false;
         setForm("0");
@@ -66,6 +41,11 @@ const Graphform:FC<Props> = ({
         pointcp=false;
         setMinace(false);
         setClick(click.map((item:boolean,ind:number)=>(ind===0||ind===12)?true:false))
+      }else if(value==='-'){
+          setMinace(true);
+          setForm("-0");
+          setChild("-0");
+          setClick(click.map((item:boolean,ind:number)=>(ind===10)?true:(ind===0)?false:item));
       }else if(value==='.'){
         setClick(click.map((item:boolean,ind:number)=>(ind===10||ind===11||ind===12)?true:(ind===0)?false:item));
         if(slushcp){
@@ -75,34 +55,39 @@ const Graphform:FC<Props> = ({
         }
         setPoint(true);
         pointcp=true;
-        num=form+value;
-        setForm(num);
-      }else{
-        if(form==='-'&&value==='0'){
-          num=form+value+'.';
-          setPoint(true);
-          pointcp=true;
-        }else{
-          num=form+value;
+        setForm(form+value);
+      }else if(value==='/'){
+        setSlush(true);
+        slushcp=true;
+        setClick(click.map((item:boolean,ind:number)=>(ind===0||ind===11||ind===12)?true:item));
+        setForm(form+value);
+      }else if(form==='0'){
+        setForm(value);
+        setChild(value);
+        setClick(click.map((item:boolean,ind:number)=>(ind===0||ind===11||ind===12)?false:(ind===10)?true:item));
+      }else if(form==='-0'){
+        setForm("-"+value);
+        setChild("-"+value);
+        if(!slush){
+          setClick(click.map((item:boolean,ind:number)=>(ind===12)?false:item));
         }
-        if(slushcp){
-          setClick(click.map((item:boolean,ind:number)=>(
-            (ind===12||ind===11)?true:item
-          )));
+      }
+      else{
+        setForm(form+value);
+        if(!slush){
+          setClick(click.map((item:boolean,ind:number)=>(ind===12)?false:item));
         }else{
-          setClick(click.map((item:boolean,ind:number)=>(
-            (pointcp&&(ind===11||ind==12))?true:
-            (!pointcp&&(ind===11||ind===12))?false:item
-          )));
+          setClick(click.map((item:boolean,ind:number)=>(ind===0)?false:item));
+        }
+        if(slush&&mother==='0'){
+          setMother(value);
+        }else if(slush&&mother!=='0'){
+          setMother(form+value);
+        }else{
+          setChild(form+value);
         }
         
-        if(slushcp&&value!=='/'){
-          setMother(mother+value);
-        }else if(value!=='/'){
-          setChild(child+value);
-        }
-        setForm(num); 
-    }
+      }
   }
 
 
