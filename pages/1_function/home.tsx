@@ -1,29 +1,31 @@
 import { NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
+import Header from "../../components/Header";
+import { function1, linkdata } from "../../data/linkdata";
+import func1 from "../../styles/function1.css";
+
 const index:NextPage = () => {
   return (
-    <div>
-      <div>
-      <Link href="/1_function/writegraph">
-          1次関数のグラフについて
-        </Link>
-      </div>
-      <div>
-        <Link href="/1_function/Filt">
-          変化の割合(傾き)について
-        </Link>
-      </div>
-      <div>
-        <Link href="/1_function/Solve_1">
-          1次関数の式を求める(1)
-        </Link>
-      </div>
-      <div>
-        <Link href="/1_function/Solve2">
-          1次関数の式を求める(2)
-        </Link>
-      </div>
-    </div>
+    <>
+      <Head>
+        <title>1次関数目次</title>
+      </Head>
+      <Header title={"1次関数"} link={"/"}/>
+        <div className={func1.content}>
+          <div className={func1.box}>
+            <h2 className={func1.h2}>menu list!</h2>
+            {function1.map((item:linkdata,index:number)=>(
+              <div key={index} className={func1.linkbox}>
+                <Link href={item.link} className={func1.link}>
+                  {item.title}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+    </>
+    
   );
 }
 
