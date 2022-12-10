@@ -8,8 +8,6 @@ import Graphform from "../../components/Graphform";
 import Formula from "../../components/Formula";
 import Head from "next/head";
 import 'katex/dist/katex.mjs';
-import Latex from 'react-latex';
-import inputform from "../../components/styles/inputform.css";
 import Comment from "../../components/Comment";
 import Header from "../../components/Header";
 import { MathJaxContext, MathJax } from "better-react-mathjax";
@@ -78,7 +76,6 @@ const Index:NextPage = () => {
         </Setting>
         <Graphtable x={label} y={y_array}/>
       </div>
-      
     <Comment title={"1次関数のグラフについて"}>
         <MathJaxContext>
         まず、1次関数の式は以下のようになります。
