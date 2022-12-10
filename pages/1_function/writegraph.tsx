@@ -13,23 +13,43 @@ import inputform from "../../components/styles/inputform.css";
 import Comment from "../../components/Comment";
 import Header from "../../components/Header";
 import { MathJaxContext, MathJax } from "better-react-mathjax";
-
-
+import { writegraph } from "../../data/function";
+import Caluculate from '../../components/Caluculate';
+import {Dispatch,SetStateAction} from 'react'
+import Setting from "../../components/Setting";
+type Graph_data={
+  setP:Dispatch<SetStateAction<string>>;
+  setNum:Dispatch<SetStateAction<number>>;
+  title:string;
+}
 const Index:NextPage = () => {
   const [numA,setNumA]=useState(0);//型変換したやつ
   const [numB,setNumB]=useState(0);//型変換したやつ
   const [pa,setPa]=useState("0");//傾き表示(input)
   const [pb,setPb]=useState("0");//切片表示(input)
   const [y_array,setY_array]=useState(x_array.map((item:number,index:number)=>0));//Yの値
-  //グラフの値を設定
-  const writegraph=()=>{
-    setY_array(x_array.map((item:number,index:number)=>(
-      Number((numA*item+numB).toFixed(3))
-    )))
-  }
+  const write=():void=>writegraph(
+    numA,
+    numB,
+    setY_array,
+  );
+  const g_data:Graph_data[]=[
+    {
+      setP:setPa,
+      setNum:setNumA,
+      title:"傾き",
+    },
+    {
+      setP:setPb,
+      setNum:setNumB,
+      title:"切片",
+    },
+  ]
+
+
+
 
   return (
-    
     <div>
       <Head>
         <title>1次関数のグラフ</title>
@@ -39,28 +59,23 @@ const Index:NextPage = () => {
       <Graph x={label} y={y_array} scale={1} min={-50} max={50}/>
       <div className={formstyle.contain}>
         <Formula a={pa} b={pb}/>
-        <div>
-          <Graphform
-            setP={setPa}
-            setNum={setNumA}
-            title={'傾き'}         
-          />
-        </div>
-        <div>
-          <Graphform
-            setP={setPb}
-            setNum={setNumB}
-            title={'切片'}         
-          />
-        </div>
-        <div>
-          <input 
-            type="button" 
-            value="グラフ描画！"
-            onClick={()=>writegraph()}
-            className={inputform.paintgraph}
-          />
-        </div>
+        <Setting>
+          {g_data.map((item:Graph_data,index:number)=>(
+            <div key={index}>
+              <Graphform
+                setP={item.setP}
+                setNum={item.setNum}
+                title={item.title}         
+              />
+            </div>
+          ))}
+          <div>
+            <Caluculate
+              title={'グラフ描画'}
+              caluculate={write}
+            />
+          </div>
+        </Setting>
         <Graphtable x={label} y={y_array}/>
       </div>
       

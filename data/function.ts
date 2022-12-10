@@ -52,11 +52,9 @@ export const calculate_function=(
       Number((a*item+b).toFixed(3))
     )))
   }
-  
-
-  
 }
 
+//2つの座標から直線の式を求める
 export const caluculate_function2=(
   numx1:number,
   numx2:number,
@@ -94,4 +92,12 @@ export const caluculate_function2=(
   )
 }
 
-
+export const writegraph=(
+  numA:number,
+  numB:number,
+  setY_array:Dispatch<SetStateAction<number[]>>
+)=>{
+  setY_array(x_array.map((item:number,index:number)=>(
+    Number((numA*item+numB).toFixed(3))
+  )))
+}
