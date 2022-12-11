@@ -85,7 +85,7 @@ const Solve2:NextPage = () => {
         <title>1次関数を求める(2)</title>
       </Head>
       <Header title={"1次関数を求める(2)"} link={'/1_function/home'}/>
-      <Graph x={label} y={y_array} scale={1} min={-50} max={50}/>
+      <Graph x={label} y={y_array} y2={undefined} scale={1} min={-50} max={50}/>
       <div 
         style={{textAlign:"center"}}
       >

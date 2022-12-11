@@ -62,7 +62,7 @@ const Solve_1:NextPage = () => {
         <title>1次関数を求める(1)</title>
       </Head>
       <Header title={"1次関数を求める(1)"} link={'/1_function/home'}/>
-      <Graph x={label} y={y_array} scale={1} min={-50} max={50}/>
+      <Graph x={label} y={y_array} y2={undefined} scale={1} min={-50} max={50}/>
       <Formula a={pa} b={pb}/>
       <div className={solve_1.content}>
         <div className={solve_1.filt}>

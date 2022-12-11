@@ -54,9 +54,14 @@ const Index:NextPage = () => {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" />
       </Head>
       <Header title={'1次関数のグラフ'} link={'/1_function/home'}/>
-      <Graph x={label} y={y_array} scale={1} min={-50} max={50}/>
+      <Graph x={label} y={y_array}y2={undefined} scale={1} min={-50} max={50}/>
       <div className={formstyle.contain}>
         <Formula a={pa} b={pb}/>
+        <div
+          style={{marginBottom:"10px"}}
+        >
+          <Graphtable x={label} y={y_array}/>
+        </div>
         <Setting>
           {g_data.map((item:Graph_data,index:number)=>(
             <div key={index}>
@@ -74,7 +79,7 @@ const Index:NextPage = () => {
             />
           </div>
         </Setting>
-        <Graphtable x={label} y={y_array}/>
+        
       </div>
     <Comment title={"1次関数のグラフについて"}>
         <MathJaxContext>

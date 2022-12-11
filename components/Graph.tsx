@@ -24,13 +24,14 @@ ChartJS.register(
 type Props={
   x:string[];
   y:number[];
+  y2:number[]|undefined;
   scale:number;
   min:number;
   max:number;
 }
 
 
-const Graph:FC<Props> = ({x,y,scale,min,max}) => {
+const Graph:FC<Props> = ({x,y,y2,scale,min,max}) => {
   
   let options = {
     scales:{
@@ -48,7 +49,12 @@ const Graph:FC<Props> = ({x,y,scale,min,max}) => {
       datasets:[{
         label:"",
         data:y,
-        borderColor:"rgb(75, 192, 192)",
+        borderColor:"green",
+      },
+      {
+        label:"",
+        data:y2,
+        borderColor:"blue",
       },
     ]
   }
