@@ -15,6 +15,7 @@ const solve_1={
     width:"70px",
     height:"30px",
     marginTop:"58px",
+    textAlign:"center",
     fontSize:"20px",
     border:"1px solid black",
   }),

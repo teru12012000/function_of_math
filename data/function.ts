@@ -101,3 +101,33 @@ export const writegraph=(
     Number((numA*item+numB).toFixed(3))
   )))
 }
+
+export const two_graph=(
+  numA1:number,
+  numB1:number,
+  setY_array1:Dispatch<SetStateAction<number[]>>,
+  numA2:number,
+  numB2:number,
+  setY_array2:Dispatch<SetStateAction<number[]>>,
+  setX:Dispatch<SetStateAction<string>>,
+  setY:Dispatch<SetStateAction<string>>,
+)=>{
+
+  const x:number=(numB2-numB1)/(numA1-numA2);
+  const y:number=numA1*x+numB1;
+  if(numA1-numA2===0){
+    window.alert('それはグラフが平行なので交点はないぞ！');
+  }
+  setX(x.toFixed(3));
+  setY(y.toFixed(3));
+  writegraph(
+    numA1,
+    numB1,
+    setY_array1
+  );
+  writegraph(
+    numA2,
+    numB2,
+    setY_array2
+  )
+}
