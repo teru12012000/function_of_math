@@ -11,7 +11,7 @@ const index:NextPage = () => {
       <Head>
         <title>1次関数目次</title>
       </Head>
-      <Header title={"1次関数"} link={"/"}/>
+      <Header title={"1次関数"} link={"/"} display={'block'}/>
         <div className={func1.content}>
           <div className={func1.box}>
             <h2 className={func1.h2}>menu list!</h2>

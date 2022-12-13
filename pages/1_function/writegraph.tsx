@@ -53,7 +53,7 @@ const Index:NextPage = () => {
         <title>1次関数のグラフ</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" />
       </Head>
-      <Header title={'1次関数のグラフ'} link={'/1_function/home'}/>
+      <Header title={'1次関数のグラフ'} link={'/1_function/home'} display={'block'}/>
       <Graph x={label} y={y_array}y2={undefined} scale={1} min={-50} max={50}/>
       <div className={formstyle.contain}>
         <Formula a={pa} b={pb}/>
