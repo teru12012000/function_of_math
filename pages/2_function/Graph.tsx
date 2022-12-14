@@ -23,8 +23,8 @@ type Graph_data={
 const Index:NextPage = () => {
   const [numA,setNumA]=useState(0);//型変換したやつ
   const [pa,setPa]=useState("0");//傾き表示(input)
-  const [y_array,setY_array]=useState(x_array.map((item:number,index:number)=>5*item*item));//Yの値
-  const [y2_array,setY2_array]=useState(x_array.map((item:number,index:number)=>10*item+1));//Yの値
+  const [y_array,setY_array]=useState(x2_array.map((item:number,index:number)=>5*item*item));//Yの値
+  const [y2_array,setY2_array]=useState(x2_array.map((item:number,index:number)=>10*item+1));//Yの値
  
 
 
@@ -37,7 +37,7 @@ const Index:NextPage = () => {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" />
       </Head>
       <Header title={'2次関数のグラフ'} link={'/1_function/home'} display={'block'}/>
-      <Graph x={label} y={y_array}y2={y2_array} scale={1} min={-50} max={50}/>
+      <Graph x={label2} y={y_array}y2={y2_array} scale={1} min={-50} max={50}/>
      </div>
   );
 }
