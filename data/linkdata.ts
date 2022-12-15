@@ -25,3 +25,20 @@ export const function1:linkdata[]=[
     link:"/1_function/Intersection",
   },
 ]
+
+export const function2:linkdata[]=[
+  {
+    title:"2次関数のグラフについて",
+    link:"/2_function/Graph",
+  },
+]
+export const homelink:linkdata[]=[
+  {
+    title:"1次関数",
+    link:"/1_function/home",
+  },
+  {
+    title:"2次関数",
+    link:"/2_function/Home",
+  },
+]

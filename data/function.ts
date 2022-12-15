@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { x_array } from "./writegraph_value";
+import { x2_array, x_array } from "./writegraph_value";
 
 var a:number=0;
 //傾きの計算
@@ -91,7 +91,7 @@ export const caluculate_function2=(
     setY_array,
   )
 }
-
+//1次関数のグラフ描画
 export const writegraph=(
   numA:number,
   numB:number,
@@ -101,7 +101,21 @@ export const writegraph=(
     Number((numA*item+numB).toFixed(3))
   )))
 }
+//2次関数のグラフ描画
+export const writegraph2=(
+  numA:number,
+  setY_array:Dispatch<SetStateAction<number[]>>,
+  setY2_array:Dispatch<SetStateAction<number[]>>
+)=>{
+  setY_array(x_array.map((item:number,index:number)=>(
+    Number((numA*item*item).toFixed(3))
+  )));
+  setY2_array(x2_array.map((item:number,index:number)=>(
+    Number((numA*item*item).toFixed(3))
+  )));
+}
 
+//1次関数のグラフの交点
 export const two_graph=(
   numA1:number,
   numB1:number,
