@@ -15,13 +15,13 @@ const Formula:FC<Props> = ({a,b}) => {
             {`\\(y=\\)`}
         </MathJax>
         <MathJax className={formstyle.text}>
-            {`\\(${a}\\)`}
+            {a}
         </MathJax>
           <MathJax>
             {`\\(x+\\)`}
           </MathJax>
           <MathJax className={formstyle.text}>
-            {`\\(${b}\\)`}
+            {b}
           </MathJax> 
       </MathJaxContext>
     </div>
