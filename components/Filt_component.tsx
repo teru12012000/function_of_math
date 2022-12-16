@@ -1,5 +1,6 @@
 import { FC } from "react";
 import frac from "./styles/valueform2.css";
+import { MathJaxContext, MathJax } from "better-react-mathjax";
 type Props={
   strchild:string;
   strmother:string;
@@ -14,22 +15,15 @@ const Filt_component:FC<Props> = ({strchild,strmother,ans,px1,px2,py1,py2}) => {
     <>
       <h2>傾き</h2>
       <div className={frac.content}>
-        <div>
-          <div className={frac.child}>
-            <p className={frac.input}>
-              {strchild}
-            </p>
-          </div>
-          <div className={frac.mother}>
-            <p className={frac.input}>
-              {strmother}
-            </p>
-          </div>
-        </div>
-        <p>=</p>
-        <p className={frac.input1}>
-          {ans}
-        </p>
+        <MathJaxContext>
+          <MathJax style={{
+            fontSize:"30px",
+            border:"3px solid black",
+            padding:"5px",
+          }}>
+            {`\\( \\frac{${strchild}}{${strmother}}=${ans} \\)`}
+          </MathJax>
+        </MathJaxContext>
       </div>
       <div className={frac.valueform}>
         <h2>座標</h2>

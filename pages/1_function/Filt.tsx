@@ -100,7 +100,7 @@ const Filt:NextPage = () => {
           <MathJax
             style={{textAlign:"center",fontSize:"30px"}}
           >
-            {"\\(変化の割合=\\frac{yの増加量}{xの増加量}\\)"}
+            {"\\(傾き=\\frac{yの増加量}{xの増加量}\\)"}
           </MathJax>
           <MathJax>
             増加量とは何かというと増えた量のことをいいます。つまり、その値は
