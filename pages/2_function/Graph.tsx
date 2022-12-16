@@ -5,9 +5,7 @@ import formstyle from "../../components/styles/valueform.css";
 import Graphtable from "../../components/graphtable";
 import { label, label2, x2_array, x_array } from "../../data/writegraph_value";
 import Graphform from "../../components/Graphform";
-import Formula from "../../components/Formula";
 import Head from "next/head";
-import 'katex/dist/katex.mjs';
 import Comment from "../../components/Comment";
 import Header from "../../components/Header";
 import { MathJaxContext, MathJax } from "better-react-mathjax";
@@ -42,7 +40,6 @@ const Index:NextPage = () => {
     <div>
       <Head>
         <title>2次関数のグラフ</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" />
       </Head>
       <Header title={'2次関数のグラフ'} link={'/2_function/Home'} display={'block'}/>
       <Graph x={label2} y={y2_array}y2={undefined} scale={1} min={-50} max={50}/>

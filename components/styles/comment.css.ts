@@ -26,6 +26,16 @@ const comment={
   main:style({
     textAlign:"left",
   }),
+  link:style({
+    backgroundColor:"yellow",
+    color:"blue",
+    ':hover':{
+      backgroundColor:"aqua",
+      color:"white",
+      transition:"0.6s",
+      
+    }
+  }),
 }
 
 export default comment;

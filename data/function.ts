@@ -101,6 +101,34 @@ export const writegraph=(
     Number((numA*item+numB).toFixed(3))
   )))
 }
+//平行なグラフの計算
+export const parallel=(
+  numA:number,
+  numB:number,
+  numX:number,
+  numY:number,
+  setPa:Dispatch<SetStateAction<string>>,
+  setPb:Dispatch<SetStateAction<string>>,
+  setY_array1:Dispatch<SetStateAction<number[]>>,
+  setY_array2:Dispatch<SetStateAction<number[]>>,
+)=>{
+  setPa(numA.toFixed(3))
+  calculate_function(
+    numA,
+    numX,
+    numY,
+    setPb,
+    setY_array2,
+  )
+  writegraph(
+    numA,
+    numB,
+    setY_array1,
+  )
+}
+
+
+
 //2次関数のグラフ描画
 export const writegraph2=(
   numA:number,

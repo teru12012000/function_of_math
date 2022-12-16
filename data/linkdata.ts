@@ -24,6 +24,10 @@ export const function1:linkdata[]=[
     title:"グラフの交点を求める",
     link:"/1_function/Intersection",
   },
+  {
+    title:"グラフに平行？",
+    link:"/1_function/Parallel",
+  },
 ]
 
 export const function2:linkdata[]=[
