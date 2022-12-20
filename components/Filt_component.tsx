@@ -16,12 +16,36 @@ const Filt_component:FC<Props> = ({strchild,strmother,ans,px1,px2,py1,py2}) => {
       <h2>傾き</h2>
       <div className={frac.content}>
         <MathJaxContext>
-          <MathJax style={{
-            fontSize:"30px",
-            border:"3px solid black",
-            padding:"5px",
-          }}>
-            {`\\( \\frac{${strchild}}{${strmother}}=${ans} \\)`}
+          <MathJax className={frac.form}>
+            <div>
+              <p
+                style={{
+                  borderBottom:"2px solid black",
+                  margin:"0",
+                }}
+              >{strchild}</p>
+              <p
+                style={{
+                  margin:"0",
+                }}
+              >
+                {strmother}
+              </p>
+            </div>
+            <div
+              style={{
+                marginTop:"15px",
+              }}
+            >
+              =
+            </div>
+            <div
+              style={{
+                marginTop:"15px",
+              }}
+            >
+              {ans}
+            </div>
           </MathJax>
         </MathJaxContext>
       </div>

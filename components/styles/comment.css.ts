@@ -5,6 +5,8 @@ const comment={
     width:"80%",
     margin:"auto",
     textAlign:"center",
+    whiteSpace:"nowrap",
+    overflow:"none",
   }),
   h2:style({
     border:"2px solid gray",

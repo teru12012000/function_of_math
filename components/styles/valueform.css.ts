@@ -17,6 +17,11 @@ const formstyle={
     height:"30px",
     border:"2px solid black",
     textAlign:"center",
+    whiteSpace:"nowrap",
+    overflow:"auto",
+    '::-webkit-scrollbar':{
+      display:"none",
+    }
   }),
 }
 

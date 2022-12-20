@@ -7,6 +7,19 @@ const frac={
     marginTop:"30px",
     justifyContent:"center",
   }),
+  form:style({
+    fontSize:"25px",
+    border:"3px solid black",
+    padding:"5px",
+    display:"flex",
+    justifyContent:"center",
+    width:"250px",
+    whiteSpace:"nowrap",
+    overflow:"auto",
+    '::-webkit-scrollbar':{
+      display:"none",
+    }
+  }),
   child:style({
     width:"80px",
     margin:"auto",
@@ -47,15 +60,20 @@ const frac={
   }),
   p:style({
     marginTop:"-10px",
-    fontSize:"30px",
+    fontSize:"40px",
   }),
   p1:style({
     marginTop:"0px",
     textAlign:"center",
     width:"70px",
-    height:"30px",
+    height:"40px",
     border:"2px solid black",
     fontSize:"20px",
+    whiteSpace:"nowrap",
+    overflow:"auto",
+    '::-webkit-scrollbar':{
+      display:"none",
+    }
   }),
   inputvalue:style({
     display:"flex",
