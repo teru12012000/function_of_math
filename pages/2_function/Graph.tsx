@@ -14,6 +14,7 @@ import Caluculate from '../../components/Caluculate';
 import {Dispatch,SetStateAction} from 'react'
 import Setting from "../../components/Setting";
 import G_2 from "../../styles/function2.css";
+import Formula2 from "../../components/Formula2";
 type Graph_data={
   setP:Dispatch<SetStateAction<string>>;
   setNum:Dispatch<SetStateAction<number>>;
@@ -43,23 +44,13 @@ const Index:NextPage = () => {
       </Head>
       <Header title={'2次関数のグラフ'} link={'/2_function/Home'} display={'block'}/>
       <Graph x={label2} y={y2_array}y2={undefined} scale={1} min={-50} max={50}/>
-      <div className={G_2.Formula}>
-        <MathJaxContext>
-          <MathJax>
-            {`\\(y=\\)`}
-          </MathJax>
-          <p className={G_2.minibox}>{pa}</p>
-          <MathJax>
-            {`\\(x^2\\)`}
-          </MathJax>
-        </MathJaxContext>
-      </div>
+      <Formula2 pa={pa}/>
       <div
         style={{
           textAlign:"center",
         }}
       >
-        <Graphtable x={label} y={y_array}/>
+      <Graphtable x={label} y={y_array}/>
       </div>
       <div
         style={{

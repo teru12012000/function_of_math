@@ -173,3 +173,39 @@ export const two_graph=(
     setY_array2
   )
 }
+
+
+export const cal_domain=(
+  numminX:number,
+  nummaxX:number,
+  numA:number,
+  setX:Dispatch<SetStateAction<number[]>>,
+  setLabel:Dispatch<SetStateAction<string[]>>,
+  setY:Dispatch<SetStateAction<number[]>>,
+  setMiny:Dispatch<SetStateAction<string>>,
+  setMaxy:Dispatch<SetStateAction<string>>,
+)=>{
+  const delta:number=Math.abs(nummaxX-numminX);
+  const half_delta:number=Number((delta/2).toFixed(0))*100;
+  let x:number[]=[...Array(delta*100+1)].map((_,index:number)=>(
+    numminX+(index/100)
+  ));
+  const x_string:string[]=x.map((item:number,index:number)=>(
+    String(item)
+  ));
+  const y:number[]=x.map((item:number)=>(
+    numA*item*item
+  ))
+  if(nummaxX<numminX){
+    window.alert('最大値と最小値が逆になってね？');
+  }
+  else{
+    setX(x);
+    setLabel(x_string);
+    setY(y);
+    const miny:number=Math.min.apply(null,y);
+    const maxy:number=Math.max.apply(null,y);
+    setMaxy(String(maxy));
+    setMiny(String(miny));
+  }
+}
