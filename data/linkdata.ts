@@ -35,6 +35,10 @@ export const function2:linkdata[]=[
     title:"2次関数のグラフについて",
     link:"/2_function/Graph",
   },
+  {
+    title:"変域について",
+    link:"/2_function/Domain",
+  },
 ]
 export const homelink:linkdata[]=[
   {

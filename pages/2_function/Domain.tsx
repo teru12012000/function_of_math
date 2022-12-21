@@ -11,6 +11,7 @@ import { cal_domain } from "../../data/function";
 import Setting from "../../components/Setting";
 import Graphform from "../../components/Graphform";
 import Caluculate from "../../components/Caluculate";
+import Comment from "../../components/Comment";
 type Graph_data={
   setP:Dispatch<SetStateAction<string>>;
   setNum:Dispatch<SetStateAction<number>>;
@@ -73,9 +74,6 @@ const Domein:NextPage = () => {
             marginBottom:"20px",
           }}
       >
-        <MathJaxContext>
-          {`\\(y\\)`}の変域
-        </MathJaxContext>
         <Formula3 a={miny} b={maxy} x={'y'}/> 
       </div>
       <Formula2 pa={pa}/>
@@ -122,6 +120,61 @@ const Domein:NextPage = () => {
             />
           </div>
         </Setting>
+        <Comment title={"変域"}>
+            <MathJaxContext>
+              2次関数の変域ですが、まず変域とは簡単に言えば{`\\(x\\)`}や{`\\(y\\)`}
+              の範囲だと思っていいと思います。<br/>
+              2次関数で中学の場合は以下の式のみです。
+              <MathJax
+                style={{textAlign:"center",fontSize:"30px"}}
+              >
+                {`\\(y=ax^2\\)`}
+              </MathJax>
+              高校に行くと
+              <MathJax
+                style={{textAlign:"center",fontSize:"30px"}}
+              >
+                {`\\(y=ax^2+bx+c\\)`}
+              </MathJax>
+              <MathJax>
+                についてを解いていきますがここでは中学の内容なので{`\\(y=ax^2\\)`}
+                のみを見ていきます。{`\\(x\\)`}の範囲が与えられたとき、その範囲が同符号の時
+                と異符号の時があります。例えば
+              </MathJax>
+              <MathJax
+                style={{textAlign:"center",fontSize:"30px"}}
+              >
+                {`\\(y=2x^2\\)`}
+              </MathJax>
+              という2次関数の式が与えられているとき
+              <MathJax
+                style={{textAlign:"center",fontSize:"30px"}}
+              >
+                {`\\(1\\leq x \\leq 2\\)`}<br/>
+              </MathJax>
+              
+              <MathJax>
+                これが同符号の時({`\\(-\\)`}の時も同じ)で
+              </MathJax>
+              <MathJax
+                style={{textAlign:"center",fontSize:"30px"}}
+              >
+                {"\\(-1\\leq x \\leq 2\\)"}
+              </MathJax>
+              <MathJax>
+                これが異符号のときです。同符号の時は{`\\(y=2x^2\\)`}にそれぞれ1と2を代入してあげれば
+                {"\\(2\\leq y \\leq 8\\)"}という答えになります。<br/>
+                異符号の時は解き方が違く{`\\(y=ax^2\\)`}の{`\\(a\\)`}が正の時は0が最小値,負の時は0が最大値になります。
+                どういうことなのかというと2次関数のグラフを想像してみてください。放物線ですよね？{`\\(x\\)`}の変域が異符号ということは
+                必ず0をまたぎますその際に0を起点にグラフは方向転換します。つまり下に下がっていって0を起点に
+                上に行く、もしくは上に上っていっていったのが0を起点に下がっていくということです。
+                何を言っているのか分からない人は前の単元に戻って確認してください。<br/>
+                あとは2つの数値のうち絶対値の大きい方を代入してあげればよいだけです。上記例でいきますと、
+                {"\\(-1\\leq x \\leq 2\\)"}で絶対値が大きいのは2なので{`\\(y=2x^2\\)`}に2を代入してあげれば、
+                {"\\(0\\leq y \\leq 8\\)"}という答えになります。値を色々設定してみて試してみてください。
+              </MathJax>
+            </MathJaxContext>
+        </Comment>
       </div>
     </div>
   );

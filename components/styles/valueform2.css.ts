@@ -8,7 +8,7 @@ const frac={
     justifyContent:"center",
   }),
   form:style({
-    fontSize:"25px",
+    fontSize:"30px",
     border:"3px solid black",
     padding:"5px",
     display:"flex",

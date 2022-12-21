@@ -14,6 +14,7 @@ import { label, x_array } from "../../data/writegraph_value";
 import solve_1 from "../../styles/Solve1.css";
 import { MathJaxContext, MathJax } from "better-react-mathjax";
 import Comment from "../../components/Comment";
+import comment from "../../components/styles/comment.css";
 type Graph_data={
   setP:Dispatch<SetStateAction<string>>;
   setNum:Dispatch<SetStateAction<number>>;
@@ -157,9 +158,7 @@ const Solve2:NextPage = () => {
                 3つ目の解き方に関しては傾きを出すまでは2つ目と同じでありあとは2つの座標のうち
                 1つを使って以下の式に当てはめて変形してあげれば良いです。
               </MathJax>
-              <MathJax
-                style={{textAlign:"center",fontSize:"30px"}}
-              >
+              <MathJax className={comment.formla}>
                 {`\\(y-y_1=ax-x_1\\)`}
               </MathJax>
               <MathJax>

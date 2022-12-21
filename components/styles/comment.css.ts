@@ -5,10 +5,16 @@ const comment={
     width:"80%",
     margin:"auto",
     textAlign:"center",
+  }),
+  formla:style({
+    textAlign:"center",
+    fontSize:"25px",
+    width:"80%",
+    margin:"auto",
     overflow:"auto",
     '::-webkit-scrollbar':{
       display:"none",
-    }    
+    }   
   }),
   h2:style({
     border:"2px solid gray",

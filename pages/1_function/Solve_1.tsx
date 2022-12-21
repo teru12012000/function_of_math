@@ -13,6 +13,7 @@ import { MathJaxContext, MathJax } from "better-react-mathjax";
 import Setting from "../../components/Setting";
 import { calculate_function } from "../../data/function";
 import Caluculate from "../../components/Caluculate";
+import comment from "../../components/styles/comment.css";
 
 type graphdata={
   setP:Dispatch<SetStateAction<string>>;
@@ -139,9 +140,7 @@ const Solve_1:NextPage = () => {
               使用するのが良いかと思います。<br/>
               例として先ほどと同様、傾きが{`\\(2\\)`}で{`\\((3,5)\\)`}を通る直線の式を求めたい。
             </MathJax>
-            <MathJax
-              style={{textAlign:"center",fontSize:"30px"}}
-            >
+            <MathJax>
               {`\\(y-5=2(x-3)\\)`}
             </MathJax>
             <MathJax>
@@ -155,9 +154,7 @@ const Solve_1:NextPage = () => {
             <MathJax>
               となります。一般化すると傾きが{`\\(a\\)`}で{`\\((x_1,y_1)\\)`}を通る直線の式は
             </MathJax>
-            <MathJax
-              style={{textAlign:"center",fontSize:"30px"}}
-            >
+            <MathJax className={comment.formla}>
               {`\\(y-y_1=ax-x_1\\)`}
             </MathJax>
               この解き方を覚えていおくと時間が短縮し計算ミスも減るかと思います。見直しに使うのもよいでしょう。
