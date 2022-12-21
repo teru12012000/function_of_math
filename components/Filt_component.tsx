@@ -15,17 +15,19 @@ const Filt_component:FC<Props> = ({strchild,strmother,ans,px1,px2,py1,py2}) => {
     <>
       <h2>傾き</h2>
       <div className={frac.content}>
-        <MathJaxContext>
-          <MathJax className={frac.form}>
+       
+          <div className={frac.form}>
             <div>
               <p
                 style={{
+                  width:"80px",
                   borderBottom:"2px solid black",
                   margin:"0",
                 }}
               >{strchild}</p>
               <p
                 style={{
+                  width:"80px",
                   margin:"0",
                 }}
               >
@@ -34,20 +36,19 @@ const Filt_component:FC<Props> = ({strchild,strmother,ans,px1,px2,py1,py2}) => {
             </div>
             <div
               style={{
-                marginTop:"15px",
+                margin:"15px",
               }}
             >
               =
             </div>
             <div
               style={{
-                marginTop:"15px",
+                margin:"15px",
               }}
             >
               {ans}
             </div>
-          </MathJax>
-        </MathJaxContext>
+          </div>
       </div>
       <div className={frac.valueform}>
         <h2>座標</h2>
