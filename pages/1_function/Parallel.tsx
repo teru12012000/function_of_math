@@ -71,6 +71,7 @@ const Parallel:NextPage = () => {
     <div>
       <Head>
         <title>グラフに平行？</title>
+        <meta name="description" content="平行なグラフについてです" />
       </Head>
       <Header title={'グラフに平行？'} link={'/1_function/home'} display={'block'}/>
       <Graph x={label} y={y1_array}y2={y2_array} scale={1} min={-50} max={50}/>

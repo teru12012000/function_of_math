@@ -41,6 +41,7 @@ const Index:NextPage = () => {
     <div>
       <Head>
         <title>2次関数のグラフ</title>
+        <meta name="description" content="2次関数のグラフのページです" />
       </Head>
       <Header title={'2次関数のグラフ'} link={'/2_function/Home'} display={'block'}/>
       <Graph x={label2} y={y2_array}y2={undefined} scale={1} min={-50} max={50}/>

@@ -66,6 +66,7 @@ const Filt:NextPage = () => {
     <>
       <Head>
         <title>傾き(変化の割合)について</title>
+        <meta name="description" content="傾きについてです" />
       </Head>
       <Header title={"傾きについて"} link={'/1_function/home'} display={'block'}/>
       <div className={formstyle.contain}>

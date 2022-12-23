@@ -61,6 +61,7 @@ const Solve_1:NextPage = () => {
     <>
       <Head>
         <title>1次関数を求める(1)</title>
+        <meta name="description" content="傾きと座標1つで直線の式を求める方法についてです" />
       </Head>
       <Header title={"1次関数を求める(1)"} link={'/1_function/home'} display={'block'}/>
       <Graph x={label} y={y_array} y2={undefined} scale={1} min={-50} max={50}/>

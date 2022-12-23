@@ -62,6 +62,7 @@ const Domein:NextPage = () => {
     <div>
        <Head>
         <title>変域について</title>
+        <meta name="description" content="2次関数の変域についてです" />
       </Head>
       <Header title={"変域"} link={'/2_function/Home'} display={'block'}/>
       <Graph x={xlabel} y={y_array} y2={undefined} scale={1} min={-50} max={50}/>

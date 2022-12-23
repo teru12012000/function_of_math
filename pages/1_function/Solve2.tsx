@@ -84,6 +84,7 @@ const Solve2:NextPage = () => {
     <>
       <Head>
         <title>1次関数を求める(2)</title>
+        <meta name="description" content="2つの座標で直線の式を求める方法です" />
       </Head>
       <Header title={"1次関数を求める(2)"} link={'/1_function/home'} display={'block'}/>
       <Graph x={label} y={y_array} y2={undefined} scale={1} min={-50} max={50}/>

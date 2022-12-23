@@ -65,6 +65,7 @@ const Intersetcion:NextPage = () => {
     <div>
       <Head>
         <title>2つのグラフの交点</title>
+        <meta name="description" content="グラフの交点についてです。" />
       </Head>
       <Header title={'2つのグラフの交点'} link={'/1_function/home'} display={'block'}/>
       <Graph x={label} y={y_array1} y2={y_array2} scale={1} min={-50} max={50}/>

@@ -10,6 +10,7 @@ const index:NextPage = () => {
     <>
       <Head>
         <title>1次関数目次</title>
+        <meta name="description" content="1次関数のページです" />
       </Head>
       <Header title={"1次関数"} link={"/"} display={'block'}/>
         <div className={func1.content}>

@@ -50,6 +50,7 @@ const Index:NextPage = () => {
     <div>
       <Head>
         <title>1次関数のグラフ</title>
+        <meta name="description" content="1次関数のグラフについてです" />
       </Head>
       <Header title={'1次関数のグラフ'} link={'/1_function/home'} display={'block'}/>
       <Graph x={label} y={y_array}y2={undefined} scale={1} min={-50} max={50}/>
