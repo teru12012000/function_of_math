@@ -174,7 +174,7 @@ export const two_graph=(
   )
 }
 
-
+//2次関数の変域
 export const cal_domain=(
   numminX:number,
   nummaxX:number,
@@ -198,6 +198,8 @@ export const cal_domain=(
   ))
   if(nummaxX<numminX){
     window.alert('最大値と最小値が逆になってね？');
+    setMaxy("範囲確認");
+    setMiny("範囲確認");
   }
   else{
     setX(x);
@@ -208,4 +210,69 @@ export const cal_domain=(
     setMaxy(String(maxy));
     setMiny(String(miny));
   }
+}
+
+export const intersection_2=(
+  numA:number,
+  numA1:number,
+  numA2:number,
+  setX:Dispatch<SetStateAction<string[]>>,
+  setY:Dispatch<SetStateAction<string[]>>,
+  setY1_array:Dispatch<SetStateAction<number[]>>,
+  setY2_array:Dispatch<SetStateAction<number[]>>,
+)=>{
+  const Y1:number[]=x2_array.map((item:number)=>(
+    numA*item*item
+  ));
+  const Y2:number[]=x2_array.map((item:number)=>(
+    numA1*item+numA2
+  ));
+  setY1_array(Y1);
+  setY2_array(Y2);
+  //ここから判別式
+  const D:number=(-1*numA1*-1*numA1)-(4*numA*-1*numA2);
+  if(D>0){
+    const x_num:number[]=[
+      (numA1-Math.sqrt(D))/(2*numA),
+      (numA1+Math.sqrt(D))/(2*numA),
+    ]
+    const y_num:number[]=x_num.map((item:number)=>(
+      (numA*Number(item)*Number(item))
+    ))
+    const x_str:string[]=x_num.map((item:number)=>(
+      item.toFixed(3)
+    ));
+    const y_str:string[]=y_num.map((item:number)=>(
+      item.toFixed(3)
+    ))
+    setX(x_str);
+    setY(y_str);
+  }else if(D===0){
+    const x_num:number=(numA1-Math.sqrt(D))/(2*numA);
+    const y_num:number=numA*x_num*x_num;
+    const x_str:string[]=[
+      x_num.toFixed(3),
+      '同じ',
+    ];
+    const y_str:string[]=[
+      y_num.toFixed(3),
+      '同じ',
+    ];
+    setX(x_str);
+    setY(y_str);
+  }else{
+    window.alert('この二つのグラフに交点はありません')
+    const x_str:string[]=[
+      '交点なし',
+      '交点なし',
+    ];
+    const y_str:string[]=[
+      '交点なし',
+      '交点なし',
+    ];
+    setX(x_str);
+    setY(y_str);
+  }
+  
+  
 }
