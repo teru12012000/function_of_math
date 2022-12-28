@@ -11,6 +11,21 @@ import { intersection_2 } from "../../data/function";
 import Setting from "../../components/Setting";
 import Graphform from "../../components/Graphform";
 import Caluculate from "../../components/Caluculate";
+import Modal from "react-modal";
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    width:"80%",
+    height:"80%",
+    right: "auto",
+    bottom: "auto",
+    overflow:'auto',
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  }
+};
+Modal.setAppElement('#__next')
 const Intersection:NextPage = () => {
   const [y_array1,setY_array1]=useState(x2_array.map((item:number,index:number)=>0));//Yの値
   const [y_array2,setY_array2]=useState(x2_array.map((item:number,index:number)=>0));//Yの値
@@ -94,6 +109,7 @@ const Intersection:NextPage = () => {
             caluculate={write}
           />
         </Setting>
+
         </div>
     </div>
   );

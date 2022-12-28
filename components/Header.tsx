@@ -60,6 +60,7 @@ const Header:FC<Props> = ({title,link,display}) => {
           </p>
         </Link>
       </div>
+      
       <Modal
         isOpen={editModalIsOpen}
         style={customStyles}
