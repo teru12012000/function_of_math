@@ -12,6 +12,9 @@ import Setting from "../../components/Setting";
 import Graphform from "../../components/Graphform";
 import Caluculate from "../../components/Caluculate";
 import Modal from "react-modal";
+import head from "../../components/styles/header.css";
+import { MathJax, MathJaxContext } from "better-react-mathjax";
+import comment from "../../components/styles/comment.css";
 const customStyles = {
   content: {
     top: "50%",
@@ -27,6 +30,13 @@ const customStyles = {
 };
 Modal.setAppElement('#__next')
 const Intersection:NextPage = () => {
+  const [editModalIsOpen, setEditModalIsOpen] = useState<boolean>(false);
+  const openmodal=()=>{
+    setEditModalIsOpen(true);
+  }
+  const closemodal=()=>{
+    setEditModalIsOpen(false);
+  }
   const [y_array1,setY_array1]=useState(x2_array.map((item:number,index:number)=>0));//Yの値
   const [y_array2,setY_array2]=useState(x2_array.map((item:number,index:number)=>0));//Yの値
   const [numA1,setNumA1]=useState(0);//型変換したやつ
@@ -35,8 +45,14 @@ const Intersection:NextPage = () => {
   const [pa1,setPa1]=useState("0");//傾き表示(input)
   const [pa2,setPa2]=useState("0");
   const [pb2,setPb2]=useState("0");
+  const [x,setX]=useState(["0","0","0"]);
   const [px,setPx]=useState(["0","同じ"]);
   const [py,setPy]=useState(["0","同じ"]);
+  const num_str:string[]=[
+    "➀",
+    "➁",
+    "➂"
+  ];
   const write=():void=>intersection_2(
     numA1,
     numA2,
@@ -45,6 +61,7 @@ const Intersection:NextPage = () => {
     setPy,
     setY_array1,
     setY_array2,
+    setX,
   )
   const g_data:graphdata[]=[
     {
@@ -93,6 +110,31 @@ const Intersection:NextPage = () => {
             <p>)</p>
         </div>
         ))}
+        <div className={head.modalcontent}>
+          <h2 
+            style={{textAlign:"center"}}
+          >解の公式の結果</h2>
+          <MathJaxContext>
+            <MathJax className={comment.formla}>
+              {`\\(x=\\frac{➀\\pm \\sqrt{➁}}{➂}\\)`}
+            </MathJax>
+          </MathJaxContext>
+          {num_str.map((item:string,index:number)=>(
+            <div 
+              key={index}
+              style={{display:"flex",justifyContent:"center"}}
+            >
+              <p>{item}：</p>
+              <p>{x[index]}</p>
+            </div>
+          ))}
+          <div
+            style={{textAlign:"center", margin:"30px"}}
+          >
+            ※素因数分解や約分などは自分で行ってください。<br/>
+            (プログラムできたら変えるかもしれません。)
+          </div>
+        </div>
         <div className={solve_1.setting}>
         <Setting>
           {g_data.map((item:graphdata,index:number)=>(
@@ -109,8 +151,7 @@ const Intersection:NextPage = () => {
             caluculate={write}
           />
         </Setting>
-
-        </div>
+      </div>
     </div>
   );
 }

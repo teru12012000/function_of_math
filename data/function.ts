@@ -220,6 +220,7 @@ export const intersection_2=(
   setY:Dispatch<SetStateAction<string[]>>,
   setY1_array:Dispatch<SetStateAction<number[]>>,
   setY2_array:Dispatch<SetStateAction<number[]>>,
+  setX2:Dispatch<SetStateAction<string[]>>,
 )=>{
   const Y1:number[]=x2_array.map((item:number)=>(
     numA*item*item
@@ -231,6 +232,11 @@ export const intersection_2=(
   setY2_array(Y2);
   //ここから判別式
   const D:number=(-1*numA1*-1*numA1)-(4*numA*-1*numA2);
+  setX2([
+    String(numA1),
+    String(D),
+    String(2*numA)
+  ])
   if(D>0){
     const x_num:number[]=[
       (numA1-Math.sqrt(D))/(2*numA),
