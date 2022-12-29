@@ -15,6 +15,7 @@ import Modal from "react-modal";
 import head from "../../components/styles/header.css";
 import { MathJax, MathJaxContext } from "better-react-mathjax";
 import comment from "../../components/styles/comment.css";
+import Comment from "../../components/Comment";
 const customStyles = {
   content: {
     top: "50%",
@@ -151,6 +152,38 @@ const Intersection:NextPage = () => {
             caluculate={write}
           />
         </Setting>
+        <Comment title={"1次関数と2次関数の交点"}>
+          <MathJaxContext>
+            まず、1次関数の式はこうだったですよね。
+            <MathJax
+              style={{textAlign:"center",fontSize:"30px"}}
+            >
+              {`\\(y=ax+b\\)`}
+            </MathJax>
+            次に、2次関数の式はこうだったですよね。
+            <MathJax
+              style={{textAlign:"center",fontSize:"30px"}}
+            >
+              {`\\(y=cx^2\\)`}
+            </MathJax>
+            <MathJax>
+              今回は2次関数の定数を{`\\(c\\)`}とします。
+              この二つのどちらかの式の{`\\(y\\)`}に代入して
+              移項し2次方程式を解けばいいだけです。
+              2次方程式を解く際には手順があります。
+            </MathJax>
+            <ol>
+              <li>因数分解を使えるかを疑い試してみる</li>
+              <li>解けなければ解の公式</li>
+            </ol>
+            中学生の場合はこの2つの順に解くといいでしょう。
+            よく初手から解の公式を使おうとして計算をミスっている人が
+            いるので気を付けましょう。<br/>
+            では、値を設定して色々計算してみてください。
+            ただし、交点がない場合がありますがそれは高校の範囲になるので
+            お楽しみに！
+          </MathJaxContext>
+        </Comment>
       </div>
     </div>
   );
