@@ -39,6 +39,10 @@ export const function2:linkdata[]=[
     title:"変域について",
     link:"/2_function/Domain",
   },
+  {
+    title:"1次関数と2次関数の交点",
+    link:"/2_function/Intersection",
+  },
 ]
 export const homelink:linkdata[]=[
   {
